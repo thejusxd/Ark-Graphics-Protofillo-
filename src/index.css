@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0901] text-slate-50 antialiased selection:bg-yellow-500/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+  
+  .liquid-glass {
+    @apply relative overflow-hidden bg-gradient-to-br from-yellow-400/[0.1] via-yellow-500/[0.03] to-transparent backdrop-blur-md border border-yellow-400/20 shadow-[0_15px_40px_rgba(0,0,0,0.25)];
+    will-change: transform, border-color;
+  }
+  
+  .liquid-glass-hover {
+    @apply hover:border-yellow-400/40 hover:shadow-[0_20px_50px_rgba(234,179,8,0.15)] transition-all duration-500 ease-out;
+  }
+
+  .liquid-shine {
+    @apply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .glossy-highlight {
+    @apply absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent;
+  }
+}
